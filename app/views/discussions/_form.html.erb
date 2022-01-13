@@ -9,17 +9,20 @@
     </div>
   </div>
 
-  <div class="field">
+  <div class="field pt-1">
     <div class="control">
-      <%= f.input :content, required: true, input_html: {class: 'textarea'}, wrapper: false, label_html: {clss: "label"} %>
+      <%= f.input :content, required: true, input_html: {class: 'textarea'}, wrapper: false, label_html: {class: "label"} %>
     </div>
   </div>
 
-  <div class="field">
+  <div class="field pt-1">
+
     <label class="label">Channel</label>
+    <p class="pb-1"><i>Please select a channel</i></p>
     <div class="control has-icons-left">
+
       <span class="select">
-        <%= f.input_field :channel_id, collection: @channels.map { |c| [c.channel, c.id]}, prompt: "Select channel" %>
+        <%= f.input_field :channel_id, collection: (@channels || []).map { |c| [c.channel, c.id]}, prompt: "Select channel" %>
       </span>
       <span class="icon is-small is-left">
         <i class="fa fa-tag"></i>
@@ -27,7 +30,7 @@
     </div>
   </div>
 
-  <div class="field">
+  <div class="field pb-1 pt-1">
     <div class="control">
       <%= f.button :submit, class:"button is-info" %>
     </div>
